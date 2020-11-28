@@ -1,0 +1,20 @@
+#-
+#
+#      _____ _          _ _       
+#     /  ___| |        | | |      
+#     \ `--.| |__   ___| | |_   _ 
+#      `--. \ '_ \ / _ \ | | | | |
+#     /\__/ / | | |  __/ | | |_| |
+#     \____/|_| |_|\___|_|_|\__, |
+#                            __/ |
+#                           |___/ 
+
+cloud_auth_key: !secret shelly_token
+cloud_server: !secret shelly_server
+settings:
+  temperature: { decimals: 1 }
+  humidity: { decimals: 1 }
+discovery: true
+scan_interval: 120
+sensors:
+  - all

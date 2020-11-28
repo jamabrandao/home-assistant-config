@@ -1,0 +1,44 @@
+#-
+#                   __ _                       _   _
+#   ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _| |_(_) ___  _ __
+#  / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \
+# | (_| (_) | | | |  _| | (_| | |_| | | | (_| | |_| | (_) | | | |
+#  \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
+#                        |___/
+#
+
+# Core Configuration
+homeassistant: !include includes/homeassistant.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+lovelace:
+  mode: yaml
+  resources: !include lovelace/resources/resources.yaml
+
+# Logging and history
+logger: !include includes/logger.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Managed via UI
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Others
+zone: !include includes/zones.yaml
+automation split: !include_dir_merge_list automations
+influxdb: !include includes/influxdb.yaml
+tplink: !include includes/tplink.yaml
+vacuum: !include includes/vacuum.yaml
+shelly: !include includes/shelly.yaml
+sensor: !include includes/sensors.yaml
+binary_sensor: !include includes/binary_sensors.yaml

@@ -1,0 +1,49 @@
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        name: Arrive Home
+        styles:
+          card:
+          - font-size: 12px
+          - font-weight: bold
+          - height: 60px
+        color: auto
+        icon: mdi:home-map-marker
+      - type: "custom:button-card"
+        name: Leave Home
+        styles:
+          card:
+          - font-size: 12px
+          - font-weight: bold
+          - height: 60px
+        color: auto
+        icon: mdi:home-export-outline
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        name: Good Night
+        styles:
+          card:
+          - font-size: 12px
+          - font-weight: bold
+          - height: 60px
+        color: auto
+        icon: mdi:weather-night
+      - type: "custom:button-card"
+        name: Garage Door
+        styles:
+          card:
+          - font-size: 12px
+          - font-weight: bold
+          - height: 60px
+        color: auto
+        icon: mdi:garage-open
+        state:
+          - color: green
+            icon: 'mdi:garage'
+            value: closed
+          - color: orange
+            icon: 'mdi:garage-open'
+            value: open

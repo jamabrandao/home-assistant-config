@@ -1,0 +1,65 @@
+---
+# 
+#  _____           _                   _____       __                           _   _             
+# /  ___|         | |                 |_   _|     / _|                         | | (_)            
+# \ `--. _   _ ___| |_ ___ _ __ ___     | | _ __ | |_ ___  _ __ _ __ ___   __ _| |_ _  ___  _ __  
+#  `--. \ | | / __| __/ _ \ '_ ` _ \    | || '_ \|  _/ _ \| '__| '_ ` _ \ / _` | __| |/ _ \| '_ \ 
+# /\__/ / |_| \__ \ ||  __/ | | | | |  _| || | | | || (_) | |  | | | | | | (_| | |_| | (_) | | | |
+# \____/ \__, |___/\__\___|_| |_| |_|  \___/_| |_|_| \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|
+#         __/ |                                                                                   
+#        |___/                                                                                    
+# 
+
+title: System Information
+icon: mdi:home-assistant
+path: system
+badges:
+  - entity: binary_sensor.updater
+  - entity: sensor.last_boot
+  - entity: sensor.latest_available_version
+cards:
+  - type: vertical-stack
+    cards:
+      - !include cards/raspb-info.yaml
+      - type: entities
+        entities:
+          - entity: sensor.installed_version
+            icon: mdi:home-assistant
+            name: Hassio Installed Version
+          - entity: sensor.latest_available_version
+            icon: mdi:home-assistant
+            name: Hassio Current Version
+          - entity: sensor.hacs
+            icon: mdi:update
+            name: Community Store
+          - entity: sensor.uptime
+            icon: mdi:home-assistant
+            name: Up Time
+          - entity: sensor.latest_available_version
+            icon: mdi:home-assistant
+            name: Latest Available Version
+      - type: entities
+        entities:
+          - sensor.hacs
+        title: Hacs
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Router
+        icon: mdi:server-network
+        entities:
+          - entity: sensor.nos_cpe_device_kib_s_sent
+            name: Sent
+          - entity: sensor.nos_cpe_device_kib_s_received
+            name: Received
+      - type: entities
+        entities:
+          - sensor.nos_cpe_device_b_sent
+          - sensor.nos_cpe_device_packets_received
+          - sensor.nos_cpe_device_packets_sent
+          - sensor.nos_cpe_device_kib_s_received
+          - sensor.nos_cpe_device_kib_s_sent
+          - sensor.nos_cpe_device_packets_s_received
+          - sensor.nos_cpe_device_packets_s_sent
+          - sensor.nos_cpe_device_b_received
+        title: Router

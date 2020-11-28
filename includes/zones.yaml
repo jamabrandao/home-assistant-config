@@ -1,0 +1,21 @@
+---
+#-
+#
+#  _______  _ __   ___  ___
+# |_  / _ \| '_ \ / _ \/ __|
+#  / / (_) | | | |  __/\__ \
+# /___\___/|_| |_|\___||___/
+#
+#
+
+- name: Home
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  radius: 50
+  icon: mdi:home
+
+- name: Work
+  latitude: !secret latitude_jb_work
+  longitude: !secret longitude_jb_work
+  radius: 300
+  icon: mdi:desktop-classic

@@ -1,0 +1,32 @@
+type: horizontal-stack
+cards:
+  - type: custom:mini-graph-card
+    name: Living Room
+    entities:
+      - sensor.shelly_shht_1_1a9201_temperature
+    line_color: blue
+    line_width: 8
+    font_size: 75
+    hour24: true
+    points: false
+    show:
+      extrema: false
+      fill: fade
+      labels: false
+      name: true
+      state: true
+  - type: custom:mini-graph-card
+    name: Main Bedroom
+    entities:
+      - sensor.shelly_shht_1_95584b_temperature
+    line_color: var(--accent-color)
+    line_width: 8
+    font_size: 75
+    hour24: true
+    points: false
+    show:
+      extrema: false
+      fill: fade
+      labels: false
+      name: true
+      state: true

@@ -1,0 +1,18 @@
+#-
+#  _                                        _     _              _
+# | |__   ___  _ __ ___   ___  __ _ ___ ___(_)___| |_ __ _ _ __ | |_
+# | '_ \ / _ \| '_ ` _ \ / _ \/ _` / __/ __| / __| __/ _` | '_ \| __|
+# | | | | (_) | | | | | |  __/ (_| \__ \__ \ \__ \ || (_| | | | | |_
+# |_| |_|\___/|_| |_| |_|\___|\__,_|___/___/_|___/\__\__,_|_| |_|\__|
+#
+#
+
+latitude: !secret latitude_home
+longitude: !secret longitude_home
+# internal_url:
+# external_url:  # XXX: take from .storage config
+elevation: 0
+unit_system: metric
+legacy_templates: false
+time_zone: Europe/Lisbon
+name: Home

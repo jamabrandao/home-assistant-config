@@ -1,0 +1,37 @@
+---
+#
+# ___  ___      _       
+# |  \/  |     (_)      
+# | .  . | __ _ _ _ __  
+# | |\/| |/ _` | | '_ \ 
+# | |  | | (_| | | | | |
+# \_|  |_/\__,_|_|_| |_|
+#                      
+#                      
+
+path: default_view 
+title: Home
+icon: mdi:home
+badges:
+  - entity: binary_sensor.night
+  - entity: person.joao_brandao
+  - entity: person.sandra_brandao
+  - entity: sun.sun
+cards:
+  - type: vertical-stack
+    cards:
+      - type: weather-forecast
+        entity: weather.openweathermap
+      - !include cards/home-buttons.yaml
+        
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - switch.robot_vacuum
+          - switch.television
+        title: All Plugs
+      - !include cards/temperature-meter.yaml
+      - !include cards/humidity-meter.yaml
+              
+  - !include cards/vacuum.yaml
