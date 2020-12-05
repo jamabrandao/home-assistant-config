@@ -1,7 +1,17 @@
+# Generic ignores
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+._*
+local_settings.py
+db.sqlite3
+
 # Byte-compiled / optimized / DLL files
-__pycache__/
 *.py[cod]
 *$py.class
+__pycache__
 
 # C extensions
 *.so
@@ -51,11 +61,6 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-
 # Flask stuff:
 instance/
 .webassets-cache
@@ -103,36 +108,61 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# home assistant
+# Home Assistant
 
-## You can whitelist files/folders with !, these will not be ignored.
+# Directory (contents) ignores
+**/appdaemon/compiled
+**/appdaemon/dashboards/
+**/.cloud
+**/.storage
+**/deps
+**/.google.token
+**/image
+**/neighbours
+core
+**/tts/
+**/themes/
+**/www/images/themes/
+**/www/community/
+
+# Specific file ignores
+.config_entries.json
+.homekit.state
+.ios.conf
+.spotify-token-cache
+.tradfri_psk.conf
+.uuid
+html5_push_registrations.conf
+ip_bans.yaml
+known_devices.yaml
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+scripts.yaml
+secrets.yaml
+zwcfg_*
+zwscene.xml
+home-assistant.log
+home-assistant_v2.db
+webostv.conf
+._includes
+
+# ESPHome ignores
+**/esphome/secrets.yaml
+**/esphome/**/
+
+# Ignore add-on files
+**/aircast.xml
+**/airsonos.xml
+**/notebooks
+
+# Ignore files created by IDE's
+.vscode
+.theia
+.Trash*
+
+# Specific keeps
+!.gitkeep
 !*.yaml
 !.gitignore
 !*.md
-
-## Ignore folders.
-.storage
-.cloud
-.google.token
-
-## Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
-ip_bans.yaml
-known_devices.yaml
-secrets.yaml
-home-assistant.log
-home-assistant_v2.db
-
-## Others
-webostv.conf
-._includes
-.homekit.state
-.spotify-token-cache
-.vscode/
-appdaemon/compiled
-appdaemon/dashboards/
-tts/
-image/
-themes/
-www/images/themes/
-www/community/
-

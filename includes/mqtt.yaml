@@ -1,0 +1,17 @@
+---
+#-
+#                  _   _
+#  _ __ ___   __ _| |_| |_
+# | '_ ` _ \ / _` | __| __|
+# | | | | | | (_| | |_| |_
+# |_| |_| |_|\__, |\__|\__|
+#               |_|
+#
+
+broker: !secret mqtt_url
+username: !secret mqtt_user
+password: !secret mqtt_password
+port: !secret mqtt_port
+keepalive: 30
+discovery: true
+discovery_prefix: homeassistant

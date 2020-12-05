@@ -1,3 +1,4 @@
+---
 #-
 #  _                _                            _
 # | | _____   _____| | __ _  ___ ___       _   _(_)
@@ -17,10 +18,9 @@ decluttering_templates:
         type: entities
       filter:
         include:
-        - entity_id: automation.[[slug]]*
+          - entity_id: automation.[[slug]]*
       sort: entity_id
       type: custom:auto-entities
-      
 title: Home Control Panel
 
 views:

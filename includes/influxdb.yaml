@@ -1,3 +1,4 @@
+---
 #-
 #  _        __ _               _ _
 # (_)_ __  / _| |_   ___  ____| | |__
@@ -7,10 +8,22 @@
 #
 #
 
+# This is the Hass.io add-on slug, allowing a direct connection to the addon.
 host: !secret ip_influxdb_host
 port: 8086
+
+# The database name to store all the metrics in.
 database: homeassistant
+
+# Authentication credentials.
 username: !secret influxdb_user
 password: !secret influxdb_password
+
+# Max number of retries in case of a failure.
 max_retries: 3
 default_measurement: state
+
+# I like to specify (whitelist) each thing I'd like to put
+# into InfluxDB, to keep the database as clean as possible.
+include:
+  entities: !include_dir_merge_list ../influxdb

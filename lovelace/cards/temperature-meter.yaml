@@ -4,29 +4,45 @@ cards:
     name: Living Room
     entities:
       - sensor.shelly_shht_1_1a9201_temperature
-    line_color: blue
-    line_width: 8
-    font_size: 75
+    line_width: 3
+    font_size: 65
     hour24: true
-    points: false
+    hours_to_show: 168
+    points_per_hour: 1
     show:
-      extrema: false
       fill: fade
       labels: false
       name: true
       state: true
+      extrema: true
+    color_thresholds:
+      - value: 28
+        color: "#e74c3c"
+      - value: 17
+        color: "#1db954"
+      - value: 0
+        color: "#3498db"
+                  
   - type: custom:mini-graph-card
     name: Main Bedroom
     entities:
       - sensor.shelly_shht_1_95584b_temperature
-    line_color: var(--accent-color)
-    line_width: 8
-    font_size: 75
+    line_width: 3
+    font_size: 65
     hour24: true
-    points: false
+    hours_to_show: 168
+    points_per_hour: 1
     show:
-      extrema: false
       fill: fade
       labels: false
       name: true
       state: true
+      extrema: true
+    color_thresholds:
+      - value: 28
+        color: "#e74c3c"
+      - value: 17
+        color: "#1db954"
+      - value: 0
+        color: "#3498db"
+

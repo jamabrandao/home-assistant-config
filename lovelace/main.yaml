@@ -1,15 +1,14 @@
 ---
 #
-# ___  ___      _       
-# |  \/  |     (_)      
-# | .  . | __ _ _ _ __  
-# | |\/| |/ _` | | '_ \ 
+# ___  ___
+# |  \/  |     (_)
+# | .  . | __ _ _ _ __
+# | |\/| |/ _` | | '_ \
 # | |  | | (_| | | | | |
 # \_|  |_/\__,_|_|_| |_|
-#                      
-#                      
+#
 
-path: default_view 
+path: default_view
 title: Home
 icon: mdi:home
 badges:
@@ -23,7 +22,7 @@ cards:
       - type: weather-forecast
         entity: weather.openweathermap
       - !include cards/home-buttons.yaml
-        
+
   - type: vertical-stack
     cards:
       - type: entities
@@ -33,5 +32,5 @@ cards:
         title: All Plugs
       - !include cards/temperature-meter.yaml
       - !include cards/humidity-meter.yaml
-              
+
   - !include cards/vacuum.yaml

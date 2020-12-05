@@ -1,3 +1,4 @@
+---
 #-
 #  _                                        _     _              _
 # | |__   ___  _ __ ___   ___  __ _ ___ ___(_)___| |_ __ _ _ __ | |_
@@ -6,13 +7,12 @@
 # |_| |_|\___/|_| |_| |_|\___|\__,_|___/___/_|___/\__\__,_|_| |_|\__|
 #
 #
-
+name: Home
 latitude: !secret latitude_home
 longitude: !secret longitude_home
-# internal_url:
-# external_url:  # XXX: take from .storage config
 elevation: 0
 unit_system: metric
-legacy_templates: false
 time_zone: Europe/Lisbon
-name: Home
+external_url: !secret ha_external_url
+internal_url: !secret ha_internal_url
+legacy_templates: false

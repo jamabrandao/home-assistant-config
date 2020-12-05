@@ -13,7 +13,7 @@
 #   | |/ _ \ '_ ` _ \| '_ \| |/ _` | __/ _ \  / __|/ _ \ '_ \/ __|/ _ \| '__/ __|
 #   | |  __/ | | | | | |_) | | (_| | ||  __/  \__ \  __/ | | \__ \ (_) | |  \__ \
 #   |_|\___|_| |_| |_| .__/|_|\__,_|\__\___|  |___/\___|_| |_|___/\___/|_|  |___/
-# 
+#
 
 - platform: template
   sensors:
@@ -21,27 +21,27 @@
       value_template: '{{ states.switch.robot_vacuum.attributes["current_a"] | float }}'
       unit_of_measurement: 'A'
       friendly_name: 'Vaccum Current Amps'
-      
+
     robot_vacuum_watts:
       value_template: '{{ states.switch.robot_vacuum.attributes["current_power_w"] | float }}'
       unit_of_measurement: 'W'
       friendly_name: 'Vaccum Current Consumption'
-      
+
     robot_vacuum_total_kwh:
       value_template: '{{ states.switch.robot_vacuum.attributes["total_energy_kwh"] | float }}'
       unit_of_measurement: 'kWh'
       friendly_name: 'Vaccum Total Consumption'
-      
+
     robot_vacuum_volts:
       value_template: '{{ states.switch.robot_vacuum.attributes["voltage"] | float }}'
-      unit_of_measurement: 'V' 
+      unit_of_measurement: 'V'
       friendly_name: 'Vaccum Voltage'
-      
+
     robot_vacuum_today_kwh:
       value_template: '{{ states.switch.robot_vacuum.attributes["today_energy_kwh"] | float }}'
-      unit_of_measurement: 'kWh' 
+      unit_of_measurement: 'kWh'
       friendly_name: 'Vaccum Today Consumption'
-      
+
     vacuum_status:
       value_template: 'Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
       icon_template: >
@@ -60,53 +60,53 @@
           mdi:help-circle
         {% endif %}
       friendly_name: 'Status'
-      
+
     vacuum_fan_speed:
       value_template: 'Mode: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}'
       icon_template: 'mdi:speedometer'
       friendly_name: 'Fan Speed'
-      
+
     vacuum_battery:
       value_template: 'Battery: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
       unit_of_measurement: '%'
       icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
       friendly_name: 'Vacuum Battery'
-      
+
     vacuum_cleaning_time:
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}'
       icon_template: 'mdi:timer'
       friendly_name: 'Time of Last Cycle'
-      
+
     vacuum_cleaned_area:
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area }}'
       unit_of_measurement: 'm ²'
       icon_template: 'mdi:ruler'
       friendly_name: 'Area of Last Cycle'
-      
+
     vacuum_cleanmainbrush:
       value_template: 'Main Brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace main brush'
-      
+
     vacuum_cleansidebrush:
       value_template: 'Side brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace side brush'
-      
+
     vacuum_cleanfilter:
       value_template: 'Filter: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace filter'
-      
+
     vacuum_sensordirtyleft:
       value_template: 'Sensor: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace filter'
-      
+
     vacuum_do_not_disturb:
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb }}'
       icon_template: >
@@ -117,13 +117,69 @@
           mdi:do-not-disturb-off
         {% endif %}
       friendly_name: 'Do Not Disturb'
-        
+
     vacuum_operation:
       value_template: 'Operation'
-      
+
     vacuum_accessories:
       value_template: 'Maintenance'
 
+
+#                  _   _
+#  _ __ ___   __ _| |_| |_
+# | '_ ` _ \ / _` | __| __|
+# | | | | | | (_| | |_| |_
+# |_| |_| |_|\__, |\__|\__|
+#               |_|
+#
+
+- platform: mqtt
+  name: shelly_shht_1_1a9201_temperature
+  state_topic: "shellies/shellyht-1A9201/sensor/temperature"
+  unit_of_measurement: '°C'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:thermometer
+
+- platform: mqtt
+  name: shelly_shht_1_1a9201_humidity
+  state_topic: "shellies/shellyht-1A9201/sensor/humidity"
+  unit_of_measurement: '%'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:water-percent
+
+- platform: mqtt
+  name: shelly_shht_1_1a9201_battery
+  state_topic: "shellies/shellyht-1A9201/sensor/battery"
+  unit_of_measurement: '%'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:battery-high
+
+- platform: mqtt
+  name: shelly_shht_1_95584b_temperature
+  state_topic: "shellies/shellyht-95584B/sensor/temperature"
+  unit_of_measurement: '°C'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:thermometer
+
+- platform: mqtt
+  name: shelly_shht_1_95584b_humidity
+  state_topic: "shellies/shellyht-95584B/sensor/humidity"
+  unit_of_measurement: '%'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:water-percent
+
+- platform: mqtt
+  name: shelly_shht_1_95584b_battery
+  state_topic: "shellies/shellyht-95584B/sensor/battery"
+  unit_of_measurement: '%'
+  expire_after: 86400
+  force_update: true
+  icon: mdi:battery-high
 
 #   ___  _   _
 #  / _ \| |_| |__   ___ _ __ ___
@@ -131,7 +187,6 @@
 # | |_| | |_| | | |  __/ |  \__ \
 #  \___/ \__|_| |_|\___|_|  |___/
 #
-
 
 - platform: systemmonitor
   resources:
@@ -147,10 +202,10 @@
     - type: processor_use
     - type: processor_temperature
     - type: last_boot
-    
+
 - platform: uptime
   unit_of_measurement: hours
-  
+
 - platform: version
   name: Installed Version
   source: local
