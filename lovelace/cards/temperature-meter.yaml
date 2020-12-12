@@ -1,3 +1,4 @@
+---
 type: horizontal-stack
 cards:
   - type: custom:mini-graph-card
@@ -22,7 +23,7 @@ cards:
         color: "#1db954"
       - value: 0
         color: "#3498db"
-                  
+
   - type: custom:mini-graph-card
     name: Main Bedroom
     entities:
@@ -45,4 +46,3 @@ cards:
         color: "#1db954"
       - value: 0
         color: "#3498db"
-

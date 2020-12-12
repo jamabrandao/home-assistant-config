@@ -160,9 +160,3 @@ webostv.conf
 .vscode
 .theia
 .Trash*
-
-# Specific keeps
-!.gitkeep
-!*.yaml
-!.gitignore
-!*.md

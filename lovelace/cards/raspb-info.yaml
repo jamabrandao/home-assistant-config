@@ -1,3 +1,4 @@
+---
 type: picture-elements
 image: /local/images/raspb.jpg
 elements:
@@ -6,7 +7,7 @@ elements:
     style:
       top: 5%
       left: 50%
-      
+
   - type: state-label
     entity: sensor.processor_use_percent
     style:
@@ -90,7 +91,7 @@ elements:
     style:
       top: 39.6%
       left: 74.4%
-      
+
   - type: state-label
     entity: sensor.last_boot
     style:

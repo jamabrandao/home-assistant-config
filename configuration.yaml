@@ -24,6 +24,7 @@ lovelace:
 
 # Logging and history
 logger: !include includes/logger.yaml
+device_tracker: !include includes/device_trackers.yaml
 
 # Text to speech
 tts:

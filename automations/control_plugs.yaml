@@ -1,77 +1,77 @@
-#-
-#                    _             _  ______ _                 
-#                   | |           | | | ___ \ |                
+---
+#
+#                    _             _  ______ _
+#                   | |           | | | ___ \ |
 #     ___ ___  _ __ | |_ _ __ ___ | | | |_/ / |_   _  __ _ ___ 
 #    / __/ _ \| '_ \| __| '__/ _ \| | |  __/| | | | |/ _` / __|
 #   | (_| (_) | | | | |_| | | (_) | | | |   | | |_| | (_| \__ \
 #    \___\___/|_| |_|\__|_|  \___/|_| \_|   |_|\__,_|\__, |___/
-#                                                     __/ |    
-#                                                    |___/     
+#                                                     __/ |
+#                                                    |___/
 #
 
 - id: 'b41a9d92c7334e3cac053a788579f3de'
   alias: Turn Off Living Room TV Plug Off Weekdays
   trigger:
-  - platform: time
-    at: '00:00'
+    - platform: time
+      at: '00:00'
   condition:
-  - condition: device
-    type: is_on
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: device
+      type: is_on
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
-  - type: turn_off
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
+    - type: turn_off
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
   mode: single
-  
+
 - id: 'f41a9d92c7334e3cac053a788579f3aa'
   alias: Turn Off Living Room TV Plug Off WeekEnd
   trigger:
-  - platform: time
-    at: '01:30'
+    - platform: time
+      at: '01:30'
   condition:
-  - condition: device
-    type: is_on
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
-  - condition: time
-    weekday:
-      - sat
-      - sun
+    - condition: device
+      type: is_on
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
+    - condition: time
+      weekday:
+        - sat
+        - sun
   action:
-  - type: turn_off
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
+    - type: turn_off
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
   mode: single  
 
 - id: 'le7fvh53t2bhthdbw0ydox26pb920r0ks'
   alias: Turn On Living Room TV Plug ON
   trigger:
-  - platform: state
-    entity_id: binary_sensor.night
-    to: 'off'
+    - platform: state
+      entity_id: binary_sensor.night
+      to: 'off'
   condition:
-  - condition: device
-    type: is_off
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
+    - condition: device
+      type: is_off
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
   action:
-  - type: turn_on
-    device_id: c61f6218c86f0e943672d9875442cb34
-    entity_id: switch.television
-    domain: switch
+    - type: turn_on
+      device_id: c61f6218c86f0e943672d9875442cb34
+      entity_id: switch.television
+      domain: switch
   mode: single
-  
