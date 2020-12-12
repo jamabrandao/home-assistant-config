@@ -8,20 +8,20 @@ cards:
     show_icon: true
     align: split
     padding: 4px
-    card_style: 
+    card_style:
       border-radius: 5px
     columns: 1
     max: 100
     entities:
       - entity: sensor.speedtest_ping
         severity:
-        - value: 20
-          color: '#1db954'
-        - value: 30
-          color: '#bf9540'
-        - value: 50
-          color: '#bf4040'
-          
+          - value: 20
+            color: '#1db954'
+          - value: 30
+            color: '#bf9540'
+          - value: 50
+            color: '#bf4040'
+
   - type: horizontal-stack
     cards:
       - type: custom:mini-graph-card
@@ -40,7 +40,7 @@ cards:
             color: '#FFFF00'
           - value: 40
             color: '#3498db'
-            
+
       - type: custom:mini-graph-card
         entities: 
           - sensor.speedtest_upload

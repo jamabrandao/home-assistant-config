@@ -7,15 +7,15 @@ cards:
     elements:
       - type: icon
         icon: mdi:bell-ring
-        tap_action: 
+        tap_action:
           action: call-service
           service: vacuum.locate
           service_data:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 90%
-         left: 80%
-         color: '#3090C7'
+          top: 90%
+          left: 80%
+          color: '#3090C7'
       - type: icon
         icon: mdi:crosshairs
         tap_action:
@@ -24,20 +24,20 @@ cards:
           service_data:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 90%
-         left: 65%
-         color: '#3090C7'
+          top: 90%
+          left: 65%
+          color: '#3090C7'
       - type: icon
         icon: mdi:home
-        tap_action: 
+        tap_action:
           action: call-service
           service: vacuum.return_to_base
           service_data:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 90%
-         left: 50%
-         color: '#3090C7'
+          top: 90%
+          left: 50%
+          color: '#3090C7'
       - type: icon
         icon: mdi:stop
         tap_action:
@@ -46,9 +46,9 @@ cards:
           service_data:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 90%
-         left: 35%
-         color: '#3090C7'
+          top: 90%
+          left: 35%
+          color: '#3090C7'
       - type: icon
         icon: mdi:play
         tap_action:
@@ -57,52 +57,52 @@ cards:
           service_data:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 90%
-         left: 20%
-         color: '#3090C7'
+          top: 90%
+          left: 20%
+          color: '#3090C7'
       # State Label
       - type: state-label
         entity: sensor.vacuum_operation
         style:
-         top: 10%
-         left: 1%
-         color: rgb(255, 255, 255)
-         transform: translate(0%,-50%)
-         pointer-events: none
-         font-family: Trebuchet MS
-         font-size: 90%
-         font-weight: bold
-         border-color: rgb(34, 154, 210)
-         background-color: '#3090C7'
-         border-radius: 6px
+          top: 10%
+          left: 1%
+          color: rgb(255, 255, 255)
+          transform: translate(0%,-50%)
+          pointer-events: none
+          font-family: Trebuchet MS
+          font-size: 90%
+          font-weight: bold
+          border-color: rgb(34, 154, 210)
+          background-color: '#3090C7'
+          border-radius: 6px
       - type: state-label
         entity: sensor.vacuum_accessories
         style:
-         top: 10%
-         right: 1%
-         color: rgb(255, 255, 255)
-         transform: translate(0%,-50%)
-         pointer-events: none
-         font-family: Trebuchet MS
-         font-size: 90%
-         font-weight: bold
-         border-color: rgb(34, 154, 210)
-         background-color: '#3090C7'
-         border-radius: 6px
+          top: 10%
+          right: 1%
+          color: rgb(255, 255, 255)
+          transform: translate(0%,-50%)
+          pointer-events: none
+          font-family: Trebuchet MS
+          font-size: 90%
+          font-weight: bold
+          border-color: rgb(34, 154, 210)
+          background-color: '#3090C7'
+          border-radius: 6px
       - type: state-label
         tap_action: more-info
         entity: vacuum.xiaomi_vacuum_cleaner
         style:
-         top: 10%
-         right: 42%
-         color: rgb(255, 255, 255)
-         transform: translate(0%,-50%)
-         font-family: Trebuchet MS
-         font-size: 150%
-         font-weight: bold
-         border-color: rgb(34, 154, 210)
-         border-radius: 6px
-         background-color: '#cccccc'
+          top: 10%
+          right: 42%
+          color: rgb(255, 255, 255)
+          transform: translate(0%,-50%)
+          font-family: Trebuchet MS
+          font-size: 150%
+          font-weight: bold
+          border-color: rgb(34, 154, 210)
+          border-radius: 6px
+          background-color: '#cccccc'
       - type: state-label
         entity: sensor.vacuum_cleanmainbrush
         style:
@@ -219,7 +219,7 @@ cards:
           font-family: Trebuchet MS
           font-size: 80%
           font-weight: bold
-          
+
   - type: custom:mini-graph-card
     icon: mdi:power-socket-eu
     name: Vacuum Power consumption

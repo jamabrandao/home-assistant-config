@@ -1,12 +1,12 @@
 ---
 - url: /hacsfiles/button-card/button-card.js
   type: module
-  
+
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
-  
+
 - url: /hacsfiles/text-element/text-element.js?v=0
   type: js
-  
+
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
