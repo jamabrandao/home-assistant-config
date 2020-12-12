@@ -25,7 +25,7 @@ cards:
   - type: horizontal-stack
     cards:
       - type: custom:mini-graph-card
-        entities: 
+        entities:
           - sensor.speedtest_download
         height: 50
         line_width: 2
@@ -42,7 +42,7 @@ cards:
             color: '#3498db'
 
       - type: custom:mini-graph-card
-        entities: 
+        entities:
           - sensor.speedtest_upload
         height: 50
         line_width: 2
