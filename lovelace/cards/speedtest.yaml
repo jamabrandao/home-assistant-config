@@ -5,7 +5,7 @@ icon: mdi:speedometer
 cards:
   - type: custom:mini-graph-card
     show_header_toggle: false
-    entities: 
+    entities:
       - entity: sensor.speedtest_ping
         name: Ping
     height: 50
