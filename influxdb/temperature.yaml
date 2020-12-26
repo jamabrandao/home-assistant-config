@@ -19,3 +19,5 @@
 - sensor.openweathermap_temperature
 - sensor.shelly_shht_1_1a9201_temperature
 - sensor.shelly_shht_1_95584b_temperature
+- sensor.martim_bedroom_thermometer
+- sensor.office_thermometer

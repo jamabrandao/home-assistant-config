@@ -1,105 +1,63 @@
 ---
-type: picture-elements
-image: /local/images/raspb.jpg
-elements:
-  - type: custom:text-element
-    text: "SERVER"
-    style:
-      top: 5%
-      left: 50%
+type: 'custom:bar-card'
+title: Home Assistant
+height: 200px
+stack: horizontal
+direction: up
+animation:
+  state: on
+  speed: 5
+entities:
+  - entity: sensor.processor_temperature
+    icon: mdi:thermometer
+    name: Temp
+    severity:
+      - color: Green
+        from: 0
+        to: 50
+      - color: Orange
+        from: 51
+        to: 70
+      - color: Red
+        from: 71
+        to: 100
+  - entity: sensor.memory_use_percent
+    icon: mdi:memory
+    name: Memory
+    severity:
+      - color: Green
+        from: 0
+        to: 50
+      - color: Orange
+        from: 51
+        to: 70
+      - color: Red
+        from: 71
+        to: 100
+  - entity: sensor.processor_use_percent
+    icon: mdi:cpu-64-bit
+    name: CPU
+    severity:
+      - color: Green
+        from: 0
+        to: 50
+      - color: Orange
+        from: 51
+        to: 70
+      - color: Red
+        from: 71
+        to: 100
+  - entity: sensor.disk_use_percent
+    icon: mdi:micro-sd
+    name: Disk
+    severity:
+      - color: Green
+        from: 0
+        to: 50
+      - color: Orange
+        from: 51
+        to: 70
+      - color: Red
+        from: 71
+        to: 100
 
-  - type: state-label
-    entity: sensor.processor_use_percent
-    style:
-      top: 23.5%
-      left: 22%
-      transform: none
-  - type: custom:text-element
-    text: "CPU Use:"
-    style:
-      top: 29.6%
-      left: 12%
-
-  - type: state-label
-    entity: sensor.processor_temperature
-    style:
-      top: 33.6%
-      left: 22%
-      transform: none
-  - type: custom:text-element
-    text: "CPU Temp:"
-    style:
-      top: 39.6%
-      left: 13%
-
-  - type: state-label
-    entity: sensor.disk_use_percent
-    style:
-      top: 43.4%
-      left: 22%
-      transform: none
-  - type: custom:text-element
-    text: "Disk Use:"
-    style:
-      top: 49.6%
-      left: 12%
-
-  - type: state-label
-    entity: sensor.disk_free
-    style:
-      top: 53%
-      left: 22%
-      transform: none
-  - type: custom:text-element
-    text: "Disk Free:"
-    style:
-      top: 59.6%
-      left: 12.3%
-
-  - type: state-label
-    entity: sensor.memory_use_percent
-    style:
-      top: 63.5%
-      left: 22%
-      transform: none
-  - type: custom:text-element
-    text: "RAM Use:"
-    style:
-      top: 69.6%
-      left: 12.3%
-
-  - type: state-label
-    entity: sensor.network_in_eth0
-    style:
-      top: 24.2%
-      left: 83%
-      transform: none
-  - type: custom:text-element
-    text: "In eth0:"
-    style:
-      top: 30.6%
-      left: 73.4%
-
-  - type: state-label
-    entity: sensor.network_out_eth0
-    style:
-      top: 32.6%
-      left: 84.6%
-      transform: none
-  - type: custom:text-element
-    text: "Out eth0:"
-    style:
-      top: 39.6%
-      left: 74.4%
-
-  - type: state-label
-    entity: sensor.last_boot
-    style:
-      top: 83.6%
-      left: 40.6%
-      transform: none
-  - type: custom:text-element
-    text: "Last Boot:"
-    style:
-      top: 89.6%
-      left: 34.4%

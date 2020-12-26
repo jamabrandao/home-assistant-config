@@ -1,48 +1,100 @@
 ---
-type: horizontal-stack
+type: vertical-stack
 cards:
-  - type: custom:mini-graph-card
-    name: Living Room
-    entities:
-      - sensor.shelly_shht_1_1a9201_temperature
-    line_width: 3
-    font_size: 65
-    hour24: true
-    hours_to_show: 168
-    points_per_hour: 1
-    show:
-      fill: fade
-      labels: false
-      name: true
-      state: true
-      extrema: true
-    color_thresholds:
-      - value: 28
-        color: "#e74c3c"
-      - value: 17
-        color: "#1db954"
-      - value: 0
-        color: "#3498db"
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Living Room
+        entities:
+          - sensor.shelly_shht_1_1a9201_temperature
+        line_width: 3
+        font_size: 65
+        hour24: true
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 28
+            color: "#e74c3c"
+          - value: 17
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
+      - type: custom:mini-graph-card
+        name: Master Bedroom
+        entities:
+          - sensor.shelly_shht_1_95584b_temperature
+        line_width: 3
+        font_size: 65
+        hour24: true
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 28
+            color: "#e74c3c"
+          - value: 17
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
 
-  - type: custom:mini-graph-card
-    name: Main Bedroom
-    entities:
-      - sensor.shelly_shht_1_95584b_temperature
-    line_width: 3
-    font_size: 65
-    hour24: true
-    hours_to_show: 168
-    points_per_hour: 1
-    show:
-      fill: fade
-      labels: false
-      name: true
-      state: true
-      extrema: true
-    color_thresholds:
-      - value: 28
-        color: "#e74c3c"
-      - value: 17
-        color: "#1db954"
-      - value: 0
-        color: "#3498db"
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Martim Bedroom
+        entities:
+          - sensor.martim_bedroom_thermometer
+        line_width: 3
+        font_size: 65
+        hour24: true
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 28
+            color: "#e74c3c"
+          - value: 17
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
+      - type: custom:mini-graph-card
+        name: Office
+        entities:
+          - sensor.office_thermometer
+        line_width: 3
+        font_size: 65
+        hour24: true
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 28
+            color: "#e74c3c"
+          - value: 17
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"

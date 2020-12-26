@@ -25,23 +25,22 @@ cards:
         entities:
           - entity: sensor.installed_version
             icon: mdi:home-assistant
-            name: Hassio Installed Version
-          - entity: sensor.latest_available_version
-            icon: mdi:home-assistant
             name: Hassio Current Version
           - entity: sensor.hacs
-            icon: mdi:update
-            name: Community Store
+            icon: hacs:hacs
+            name: Hacs
           - entity: sensor.uptime
             icon: mdi:home-assistant
             name: Up Time
           - entity: sensor.latest_available_version
             icon: mdi:home-assistant
             name: Latest Available Version
-      - type: entities
-        entities:
-          - sensor.hacs
-        title: Hacs
+          - entity: sensor.last_boot
+            name: Last Boot
+          - entity: sensor.disk_free
+            name: Disk Free 
+          - sensor.network_in_eth0
+          - sensor.network_out_eth0
 
   - type: vertical-stack
     cards:

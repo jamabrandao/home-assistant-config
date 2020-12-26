@@ -1,51 +1,105 @@
 ---
-type: horizontal-stack
+type: vertical-stack
 cards:
-  - type: custom:mini-graph-card
-    name: Living Room
-    entities:
-      - sensor.shelly_shht_1_1a9201_humidity
-    line_color: blue
-    line_width: 3
-    font_size: 65
-    hour24: true
-    points: false
-    hours_to_show: 168
-    points_per_hour: 1
-    show:
-      fill: fade
-      labels: false
-      name: true
-      state: true
-      extrema: true
-    color_thresholds:
-      - value: 80
-        color: "#e74c3c"
-      - value: 57
-        color: "#1db954"
-      - value: 0
-        color: "#3498db"
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Living Room
+        entities:
+          - sensor.shelly_shht_1_1a9201_humidity
+        line_color: blue
+        line_width: 3
+        font_size: 65
+        hour24: true
+        points: false
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 80
+            color: "#e74c3c"
+          - value: 57
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
+      - type: custom:mini-graph-card
+        name: Master Bedroom
+        entities:
+          - sensor.shelly_shht_1_95584b_humidity
+        line_width: 3
+        font_size: 65
+        hour24: true
+        points: false
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 80
+            color: "#e74c3c"
+          - value: 57
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
 
-  - type: custom:mini-graph-card
-    name: Main Bedroom
-    entities:
-      - sensor.shelly_shht_1_95584b_humidity
-    line_width: 3
-    font_size: 65
-    hour24: true
-    points: false
-    hours_to_show: 168
-    points_per_hour: 1
-    show:
-      fill: fade
-      labels: false
-      name: true
-      state: true
-      extrema: true
-    color_thresholds:
-      - value: 80
-        color: "#e74c3c"
-      - value: 57
-        color: "#1db954"
-      - value: 0
-        color: "#3498db"
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Martim Bedroom
+        entities:
+          - sensor.martim_bedroom_humidity
+        line_width: 3
+        font_size: 65
+        hour24: true
+        points: false
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 80
+            color: "#e74c3c"
+          - value: 57
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"
+      - type: custom:mini-graph-card
+        name: Office
+        entities:
+          - sensor.office_humidity
+        line_width: 3
+        font_size: 65
+        hour24: true
+        points: false
+        hours_to_show: 168
+        points_per_hour: 1
+        animate: true
+        show:
+          fill: fade
+          labels: false
+          name: true
+          state: true
+          extrema: true
+        color_thresholds:
+          - value: 80
+            color: "#e74c3c"
+          - value: 57
+            color: "#1db954"
+          - value: 0
+            color: "#3498db"

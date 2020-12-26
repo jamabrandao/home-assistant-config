@@ -19,3 +19,5 @@
 - sensor.openweathermap_humidity
 - sensor.shelly_shht_1_1a9201_humidity
 - sensor.shelly_shht_1_95584b_humidity
+- sensor.martim_bedroom_humidity
+- sensor.office_humidity

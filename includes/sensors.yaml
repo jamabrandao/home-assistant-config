@@ -204,7 +204,6 @@
     - type: last_boot
 
 - platform: uptime
-  unit_of_measurement: hours
 
 - platform: version
   name: Installed Version

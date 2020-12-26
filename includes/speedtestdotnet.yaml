@@ -10,7 +10,7 @@
 #       |_|
 #
 
-server_id: 30945
+server_id: 10363
 scan_interval:
   minutes: 90
 monitored_conditions:

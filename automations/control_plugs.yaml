@@ -60,9 +60,8 @@
 - id: 'le7fvh53t2bhthdbw0ydox26pb920r0ks'
   alias: Turn On Living Room TV Plug ON
   trigger:
-    - platform: state
-      entity_id: binary_sensor.night
-      to: 'off'
+    - platform: sun
+      event: sunrise
   condition:
     - condition: device
       type: is_off

@@ -5,19 +5,19 @@
 #  / _` |/ _ \ \ / / |/ __/ _ \  | __| '__/ _` |/ __| |/ / _ \ '__/ __|
 # | (_| |  __/\ V /| | (_|  __/  | |_| | | (_| | (__|   <  __/ |  \__ \
 #  \__,_|\___| \_/ |_|\___\___|___\__|_|  \__,_|\___|_|\_\___|_|  |___/
-#                            |_____|
 #
 
-- platform: bluetooth_le_tracker
-  track_new_devices: true
-  track_battery: true
-  interval_seconds: 300
+#- platform: bluetooth_le_tracker
+#  track_new_devices: true
+#  track_battery: true
+#  interval_seconds: 300
+#  consider_home: 180
 
 - platform: nmap_tracker
   hosts: 192.168.1.0/24
   home_interval: 10
   consider_home: 180
-  interval_seconds: 300
+  interval_seconds: 30
   exclude:
    - !secret ip_gateway
    - !secret ip_hs110_vacuum

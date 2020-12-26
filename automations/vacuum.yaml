@@ -1,0 +1,103 @@
+---
+#-
+#
+# __   ____ _  ___ _   _ _   _ _ __ ___
+# \ \ / / _` |/ __| | | | | | | '_ ` _ \
+#  \ V / (_| | (__| |_| | |_| | | | | | |
+#   \_/ \__,_|\___|\__,_|\__,_|_| |_| |_|
+#
+#
+
+- id: '53f752fc-c2c1-4437-91a3-87d2c8de681d'
+  alias: "Vacuum Main Brush Clean"
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleanmainbrush
+      to: '22'
+      for: '1'
+  action:
+    - service: notify.all_phones
+      data:
+        title: "Vaccum"
+        message: "Order main bush replacement. Only 20 hours left! ⚠️"
+
+- id: '5736ef4c-b627-45f0-9fc7-50629fb02d84'
+  alias: "Vacuum Side Brush Clean"
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleansidebrush
+      to: '22'
+      for: '1'
+  action:
+    service: notify.all_phones
+    data:
+      title: "Vaccum"
+      message: "Order side brush replacement. Only 20 hours left! ⚠️"
+
+- id: '7883e4ad-ea31-4dc5-95fb-649f91260c13'
+  alias: "Vacuum Filter Clean"
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleanfilter
+      to: '22'
+      for: '1'
+  action:
+    service: notify.all_phones
+    data:
+      title: "Vaccum"
+      message: "Order filter replacement. Only 20 hours left! ⚠️"
+
+- id: '26fd1187-f90e-48b0-b24f-8d78697613f9'
+  alias: "Vacuum Sensors Clean"
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_sensordirtyleft
+      to: '8'
+      for: '1'
+  action:
+    service: notify.all_phones
+    data:
+      title: "Vaccum"
+      message: "Clean sensors, only 8 hours left! ⚠️"
+
+- id: 'c51b077d-9b7d-4f06-9ddc-dbeefbc56a46'
+  alias: "Vacuum Reset Cleaned Today"
+  initial_state: "on"
+  trigger:
+    - platform: time
+      at: "00:00:00"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.cleaned_today
+
+- id: '21830357-890b-46bc-8cef-b412b0605793'
+  alias: "Vacuum Set Cleaned Today"
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      from: docked
+      to: cleaning
+  condition:
+    - condition: state
+      entity_id: input_boolean.cleaned_today
+      state: 'off'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.cleaned_today
+
+- id: '08706be8-ab23-4b0c-99a0-2d8786fb5e41'
+  alias: "Vacuum send alert after daily vacuum to empty the dustbin"
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      from: cleaning
+      to: returning
+  condition:
+    - condition: state
+      entity_id: input_boolean.cleaned_today
+      state: 'on'
+  action:
+    service: notify.all_phones
+    data:
+      title: "Vaccum"
+      message: "Robozão finished vacuuming, empty the dustbin. ⚠️"

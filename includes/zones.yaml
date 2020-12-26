@@ -14,7 +14,7 @@
   radius: 50
   icon: mdi:home
 
-- name: Work
+- name: Joao_Work
   latitude: !secret latitude_jb_work
   longitude: !secret longitude_jb_work
   radius: 300

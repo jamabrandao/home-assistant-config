@@ -14,17 +14,6 @@ cards:
             entity_id: vacuum.xiaomi_vacuum_cleaner
         style:
           top: 90%
-          left: 80%
-          color: '#3090C7'
-      - type: icon
-        icon: mdi:crosshairs
-        tap_action:
-          action: call-service
-          service: vacuum.clean_spot
-          service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
-        style:
-          top: 90%
           left: 65%
           color: '#3090C7'
       - type: icon
@@ -231,6 +220,7 @@ cards:
     line_width: 3
     hours_to_show: 68
     points_per_hour: 1
+    animate: true
     show:
       fill: fade
       labels: false

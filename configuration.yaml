@@ -22,6 +22,9 @@ lovelace:
   mode: yaml
   resources: !include lovelace/resources/resources.yaml
 
+# Inputs
+input_boolean: !include includes/input_booleans.yaml
+
 # Logging and history
 logger: !include includes/logger.yaml
 device_tracker: !include includes/device_trackers.yaml
@@ -31,13 +34,13 @@ tts:
   - platform: google_translate
 
 # Managed via UI
-group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
 # Others
 zone: !include includes/zones.yaml
+group: !include includes/groups.yaml
 automation split: !include_dir_merge_list automations
 influxdb: !include includes/influxdb.yaml
 tplink: !include includes/tplink.yaml
@@ -46,3 +49,4 @@ vacuum: !include includes/vacuum.yaml
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 speedtestdotnet: !include includes/speedtestdotnet.yaml
+notify: !include includes/notify.yaml
