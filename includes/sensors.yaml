@@ -43,9 +43,9 @@
       friendly_name: 'Vaccum Today Consumption'
 
     vacuum_status:
-      value_template: 'Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
+      value_template: 'Status: {{ states.vacuum.roborock_vacuum.attributes.status }}'
       icon_template: >
-        {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.status  %}
+        {% set val =  states.vacuum.roborock_vacuum.attributes.status  %}
         {% if val == 'Charging' %}
           mdi:battery-charging
         {% elif val == 'Cleaning' %}
@@ -62,55 +62,56 @@
       friendly_name: 'Status'
 
     vacuum_fan_speed:
-      value_template: 'Mode: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}'
+      value_template: 'Mode: {{ states.vacuum.roborock_vacuum.attributes.fan_speed }}'
       icon_template: 'mdi:speedometer'
       friendly_name: 'Fan Speed'
 
     vacuum_battery:
-      value_template: 'Battery: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
+      value_template: 'Battery: {{ states.vacuum.roborock_vacuum.attributes.battery_level }}'
       unit_of_measurement: '%'
-      icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
+      icon_template: '{{ states.vacuum.roborock_vacuum.attributes.battery_icon }}'
       friendly_name: 'Vacuum Battery'
 
     vacuum_cleaning_time:
-      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}'
+      value_template: '{{ states.vacuum.roborock_vacuum.attributes.cleaning_time }}'
+      unit_of_measurement: 'h'
       icon_template: 'mdi:timer'
       friendly_name: 'Time of Last Cycle'
 
     vacuum_cleaned_area:
-      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area }}'
+      value_template: '{{ states.vacuum.roborock_vacuum.attributes.cleaned_area }}'
       unit_of_measurement: 'm ²'
       icon_template: 'mdi:ruler'
       friendly_name: 'Area of Last Cycle'
 
     vacuum_cleanmainbrush:
-      value_template: 'Main Brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
+      value_template: 'Main Brush: {{ states.vacuum.roborock_vacuum.attributes.main_brush_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace main brush'
 
     vacuum_cleansidebrush:
-      value_template: 'Side brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
+      value_template: 'Side brush: {{ states.vacuum.roborock_vacuum.attributes.side_brush_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace side brush'
 
     vacuum_cleanfilter:
-      value_template: 'Filter: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
+      value_template: 'Filter: {{ states.vacuum.roborock_vacuum.attributes.filter_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace filter'
 
     vacuum_sensordirtyleft:
-      value_template: 'Sensor: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
+      value_template: 'Sensor: {{ states.vacuum.roborock_vacuum.attributes.sensor_dirty_left }}'
       unit_of_measurement: 'h'
       icon_template: 'mdi:screwdriver'
       friendly_name: 'Replace filter'
 
     vacuum_do_not_disturb:
-      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb }}'
+      value_template: '{{ states.vacuum.roborock_vacuum.attributes.do_not_disturb }}'
       icon_template: >
-        {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb  %}
+        {% set val =  states.vacuum.roborock_vacuum.attributes.do_not_disturb  %}
         {% if val == 'on' %}
           mdi:do-not-disturb
         {% else %}
@@ -124,6 +125,10 @@
     vacuum_accessories:
       value_template: 'Maintenance'
 
+    timestamp_start_of_today:
+      value_template: >
+        {{ as_timestamp(now().replace(hour=0).replace(minute=0).replace(second=0)) }}
+      unit_of_measurement: "s"
 
 #                  _   _
 #  _ __ ___   __ _| |_| |_
@@ -214,3 +219,45 @@
   beta: false
   image: raspberrypi4
   source: hassio
+
+#  _____ _                  _                  _
+# |_   _(_)_ __ ___   ___  | |_ _ __ __ _  ___| | _____ _ __ ___
+#   | | | | '_ ` _ \ / _ \ | __| '__/ _` |/ __| |/ / _ \ '__/ __|
+#   | | | | | | | | |  __/ | |_| | | (_| | (__|   <  __/ |  \__ \
+#   |_| |_|_| |_| |_|\___|  \__|_|  \__,_|\___|_|\_\___|_|  |___/
+#
+
+- platform: history_stats
+  name: Time At Work Today
+  entity_id: input_boolean.work_started
+  state: "on"
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: Hours Playstation has been on last 7 days
+  entity_id: device_tracker.playstation
+  state: "home"
+  type: time
+  duration:
+    days: 7
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: Quarantine meter João
+  entity_id: person.joao_brandao
+  state: "home"
+  type: ratio
+  duration:
+    days: 14
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: Quarantine meter Sandra
+  entity_id: person.sandra_brandao
+  state: "home"
+  type: ratio
+  duration:
+    days: 14
+  end: "{{ now() }}"

@@ -15,6 +15,7 @@ badges:
   - entity: binary_sensor.night
   - entity: person.joao_brandao
   - entity: person.sandra_brandao
+  - entity: person.martim_brandao
   - entity: sun.sun
 cards:
   - type: vertical-stack

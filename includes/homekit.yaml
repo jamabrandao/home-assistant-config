@@ -1,0 +1,84 @@
+---
+#-
+#  _   _                      _   ___ _
+# | | | |                    | | / (_) |
+# | |_| | ___  _ __ ___   ___| |/ / _| |
+# |  _  |/ _ \| '_ ` _ \ / _ \    \| | __|
+# | | | | (_) | | | | | |  __/ |\  \ | |_
+# \_| |_/\___/|_| |_| |_|\___\_| \_/_|\__|
+
+auto_start: false
+filter:
+  exclude_domains:
+    - automation
+    - binary_sensor
+    - device_tracker
+    - group
+    - input_boolean
+    - notify
+    - persistent_notification
+    - person
+    - script
+    - speedtestdotnet
+    - sun
+    - zone
+  exclude_entities:
+    - vacuum.xiaomi_vacuum_cleaner
+    - sensor.processor_temperature
+    - sensor.processor_use_percent
+    - sensor.disk_free
+    - sensor.disk_use_percent
+    - sensor.last_boot
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.memory_use_percent
+    - sensor.openweathermap_cloud_coverage
+    - sensor.openweathermap_condition
+    - sensor.openweathermap_forecast_condition
+    - sensor.openweathermap_forecast_precipitation
+    - sensor.openweathermap_forecast_pressure
+    - sensor.openweathermap_forecast_temperature
+    - sensor.openweathermap_forecast_temperature_low
+    - sensor.openweathermap_forecast_time
+    - sensor.openweathermap_forecast_wind_bearing
+    - sensor.openweathermap_forecast_wind_speed
+    - sensor.openweathermap_humidity
+    - sensor.openweathermap_pressure
+    - sensor.openweathermap_rain
+    - sensor.openweathermap_snow
+    - sensor.openweathermap_temperature
+    - sensor.openweathermap_weather
+    - sensor.openweathermap_weather_code
+    - sensor.openweathermap_wind_bearing
+    - sensor.openweathermap_wind_speed
+    - sensor.redmi_note_8_pro_battery_health
+    - sensor.redmi_note_8_pro_battery_level
+    - sensor.redmi_note_8_pro_battery_state
+    - sensor.redmi_note_8_pro_charger_type
+    - sensor.redmi_note_8_pro_geocoded_location
+    - sensor.joaos_iphone_activity
+    - sensor.joaos_iphone_average_active_pace
+    - sensor.joaos_iphone_battery_level
+    - sensor.joaos_iphone_battery_state
+    - sensor.joaos_iphone_bssid
+    - sensor.joaos_iphone_connection_type
+    - sensor.joaos_iphone_distance
+    - sensor.joaos_iphone_floors_ascended
+    - sensor.joaos_iphone_floors_descended
+    - sensor.joaos_iphone_geocoded_location
+    - sensor.joaos_iphone_last_update_trigger
+    - sensor.joaos_iphone_sim_1
+    - sensor.joaos_iphone_ssid
+    - sensor.joaos_iphone_steps
+    - sensor.joaos_iphone_storage
+  include_entities:
+    - switch.television
+    - switch.robot_vacuum
+entity_config:
+  media_player.libreelec:
+    name: Media Player
+    feature_list:
+      - feature: on_off
+      - feature: play_pause
+      - feature: play_stop
+      - feature: toggle_mute

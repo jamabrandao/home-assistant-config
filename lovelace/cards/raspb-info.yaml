@@ -14,12 +14,12 @@ entities:
     severity:
       - color: Green
         from: 0
-        to: 50
+        to: 60
       - color: Orange
-        from: 51
-        to: 70
+        from: 61
+        to: 73
       - color: Red
-        from: 71
+        from: 74
         to: 100
   - entity: sensor.memory_use_percent
     icon: mdi:memory

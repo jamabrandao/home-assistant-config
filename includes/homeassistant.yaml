@@ -10,7 +10,7 @@
 name: Home
 latitude: !secret latitude_home
 longitude: !secret longitude_home
-elevation: 327
+elevation: 342.40357971191406
 unit_system: metric
 time_zone: Europe/Lisbon
 external_url: !secret ha_external_url

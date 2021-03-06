@@ -1,0 +1,98 @@
+---
+#-
+#                     _
+# __      _____  _ __| | __
+# \ \ /\ / / _ \| '__| |/ /
+#  \ V  V / (_) | |  |   <
+#   \_/\_/ \___/|_|  |_|\_\
+#
+#
+
+- id: '81a7fc58-b7c9-4946-a382-3368184f9c92'
+  alias: "Work: Work has started"
+  trigger:
+    platform: state
+    entity_id: device_tracker.joao_laptop
+    to: 'home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.work_started
+      state: "off"
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.work_started
+    - service: input_datetime.set_datetime
+      data_template:
+        entity_id: input_datetime.work_start_time
+        time: '{{ (as_timestamp(states.device_tracker.joao_laptop.last_changed) | timestamp_custom("%H:%M:%S", true)) }}'
+
+- id: '88d54078-466a-4192-85de-eb6b918aeb1b'
+  alias: "Work: Send go home notification"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.worked_enough_today
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.work_started
+      state: "on"
+    - condition: state
+      entity_id: input_boolean.work_hour_notification_sent
+      state: "off"
+  action:
+    - service: notify.joao
+      data:
+        title: "Work"
+        message: "You have worked 8 hours today, very good! Go home 🎉"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.work_hour_notification_sent
+
+- id: 'c8db9642-b75d-4d76-966d-559e958845c1'
+  alias: "Work: Reset go home notification sent at midnight"
+  trigger:
+    platform: time
+    at: "00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.work_hour_notification_sent
+    state: "on"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.work_hour_notification_sent
+
+- id: 'd03c64c6-dae4-417f-8f06-16cd1bf8b7ee'
+  alias: "Work: Reset work started at midnight "
+  trigger:
+    platform: time
+    at: "00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.work_started
+    state: "on"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.work_started
+
+- id: 'adc9b6fa-09e2-46a2-a7ef-3c0902512865'
+  alias: "Work: João left work notification for Sandra"
+  trigger:
+    platform: state
+    entity_id: person.joao_brandao
+    from: "Work"
+  condition:
+    condition: time
+    after: "15:00:00"
+    before: "22:00:00"
+  action:
+    service: notify.sandra
+    data:
+      title: "Work"
+      message: "João has left work! ♥️🎉"

@@ -1,0 +1,19 @@
+---
+#-
+#  _   _                      _   ___ _
+# | | | |                    | | / (_) |
+# | |_| | ___  _ __ ___   ___| |/ / _| |
+# |  _  |/ _ \| '_ ` _ \ / _ \    \| | __|
+# | | | | (_) | | | | | |  __/ |\  \ | |_
+# \_| |_/\___/|_| |_| |_|\___\_| \_/_|\__|
+
+- id: 'cf9d41e9-d0e7-4465-98a4-deac06f9bf97'
+  description: HomeKit Delayed Start
+  alias: "HomeKit Delayed Start"
+  mode: single
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: 00:02
+    - service: homekit.start

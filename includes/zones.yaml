@@ -19,3 +19,9 @@
   longitude: !secret longitude_jb_work
   radius: 300
   icon: mdi:desktop-classic
+
+- name: Sandra_Parents
+  latitude: !secret latitude_sandra_parents
+  longitude: !secret longitude_sandra_parents
+  radius: 70
+  icon: mdi:account-group

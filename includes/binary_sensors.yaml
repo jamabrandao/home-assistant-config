@@ -12,3 +12,18 @@
   name: Night
   after: sunset
   before: sunrise
+
+- platform: template
+  sensors:
+    worked_enough_today:
+      friendly_name: Worked enough today
+      value_template: >
+        {{ states("sensor.time_at_work_today") | float(0) > 9 }}
+      icon_template: mdi:briefcase
+
+    no_one_home:
+      friendly_name: No one is home
+      value_template: >
+        {{ not is_state("person.joao_brandao", "home")
+            and not is_state("person.sandra_brandao", "home")
+            and not is_state("person.martim_brandao", "home") }}

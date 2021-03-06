@@ -11,3 +11,11 @@
 cleaned_today:
   name: Vacuum cleaned today
   icon: mdi:broom
+
+work_hour_notification_sent:
+  name: You've worked enough notification sent
+  icon: mdi:lamp
+
+work_started:
+  name: Work has started
+  icon: mdi:lan-connect

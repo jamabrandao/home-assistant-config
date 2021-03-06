@@ -10,10 +10,7 @@
 
 # Core Configuration
 homeassistant: !include includes/homeassistant.yaml
-
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
 frontend:
   themes: !include_dir_merge_named themes
 http: !include includes/http.yaml
@@ -24,6 +21,7 @@ lovelace:
 
 # Inputs
 input_boolean: !include includes/input_booleans.yaml
+input_datetime: !include includes/input_datetimes.yaml
 
 # Logging and history
 logger: !include includes/logger.yaml
@@ -45,8 +43,9 @@ automation split: !include_dir_merge_list automations
 influxdb: !include includes/influxdb.yaml
 tplink: !include includes/tplink.yaml
 mqtt: !include includes/mqtt.yaml
-vacuum: !include includes/vacuum.yaml
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 speedtestdotnet: !include includes/speedtestdotnet.yaml
 notify: !include includes/notify.yaml
+homekit: !include includes/homekit.yaml
+wake_on_lan:

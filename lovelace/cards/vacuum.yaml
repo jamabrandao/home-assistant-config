@@ -11,7 +11,7 @@ cards:
           action: call-service
           service: vacuum.locate
           service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
         style:
           top: 90%
           left: 65%
@@ -22,7 +22,7 @@ cards:
           action: call-service
           service: vacuum.return_to_base
           service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
         style:
           top: 90%
           left: 50%
@@ -33,7 +33,7 @@ cards:
           action: call-service
           service: vacuum.stop
           service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
         style:
           top: 90%
           left: 35%
@@ -44,7 +44,7 @@ cards:
           action: call-service
           service: vacuum.start
           service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
         style:
           top: 90%
           left: 20%
@@ -80,7 +80,7 @@ cards:
           border-radius: 6px
       - type: state-label
         tap_action: more-info
-        entity: vacuum.xiaomi_vacuum_cleaner
+        entity: vacuum.roborock_vacuum
         style:
           top: 10%
           right: 42%

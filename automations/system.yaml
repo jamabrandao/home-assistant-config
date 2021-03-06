@@ -27,14 +27,14 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.processor_temperature
-    above: 60
+    above: 70
     for:
       hours: 4
   action:
     service: notify.joao
     data:
       title: "System"
-      message: "CPU temperature has been above 60 °C for 4 hours! ⚠️"
+      message: "CPU temperature has been above 70 °C for 4 hours! ⚠️"
 
 - id: '104463f6-7524-48d9-bbe5-2bb09017e946'
   description: Send notification on Home Assistant start

@@ -10,11 +10,17 @@
 
 - id: '53f752fc-c2c1-4437-91a3-87d2c8de681d'
   alias: "Vacuum Main Brush Clean"
+  mode: single
   trigger:
     - platform: state
-      entity_id: sensor.vacuum_cleanmainbrush
-      to: '22'
-      for: '1'
+      entity_id: vacuum.roborock_vacuum
+      from: cleaning
+      to: returning
+  condition:
+    - condition: numeric_state
+      entity_id: vacuum.roborock_vacuum
+      attribute: main_brush_left
+      below: '21'
   action:
     - service: notify.all_phones
       data:
@@ -23,11 +29,17 @@
 
 - id: '5736ef4c-b627-45f0-9fc7-50629fb02d84'
   alias: "Vacuum Side Brush Clean"
+  mode: single
   trigger:
     - platform: state
-      entity_id: sensor.vacuum_cleansidebrush
-      to: '22'
-      for: '1'
+      entity_id: vacuum.roborock_vacuum
+      from: cleaning
+      to: returning
+  condition:
+    - condition: numeric_state
+      entity_id: vacuum.roborock_vacuum
+      attribute: side_brush_left
+      below: '21'
   action:
     service: notify.all_phones
     data:
@@ -36,11 +48,17 @@
 
 - id: '7883e4ad-ea31-4dc5-95fb-649f91260c13'
   alias: "Vacuum Filter Clean"
+  mode: single
   trigger:
     - platform: state
-      entity_id: sensor.vacuum_cleanfilter
-      to: '22'
-      for: '1'
+      entity_id: vacuum.roborock_vacuum
+      from: cleaning
+      to: returning
+  condition:
+    - condition: numeric_state
+      entity_id: vacuum.roborock_vacuum
+      attribute: filter_left
+      below: '21'
   action:
     service: notify.all_phones
     data:
@@ -49,11 +67,17 @@
 
 - id: '26fd1187-f90e-48b0-b24f-8d78697613f9'
   alias: "Vacuum Sensors Clean"
+  mode: single
   trigger:
     - platform: state
-      entity_id: sensor.vacuum_sensordirtyleft
-      to: '8'
-      for: '1'
+      entity_id: vacuum.roborock_vacuum
+      from: cleaning
+      to: returning
+  condition:
+    - condition: numeric_state
+      entity_id: vacuum.roborock_vacuum
+      attribute: sensor_dirty_left
+      below: '9'
   action:
     service: notify.all_phones
     data:
@@ -74,7 +98,7 @@
   alias: "Vacuum Set Cleaned Today"
   trigger:
     - platform: state
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       from: docked
       to: cleaning
   condition:
@@ -89,7 +113,7 @@
   alias: "Vacuum send alert after daily vacuum to empty the dustbin"
   trigger:
     - platform: state
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       from: cleaning
       to: returning
   condition:
